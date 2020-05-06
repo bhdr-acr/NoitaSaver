@@ -86,10 +86,6 @@ namespace NoitaSaver
                 EmptyFolder(new DirectoryInfo(SavePath));
 
                 CopyFolderLoad(SecureSavePath, SavePath);
-
-                LoadButton.Enabled = true;
-
-                DeleteButton.Enabled = true;
             }
         }
 
@@ -101,9 +97,9 @@ namespace NoitaSaver
             {
                 EmptyFolder(new DirectoryInfo(NollaPath + SaveSlotSelection));
 
-                LoadButton.Enabled = true;
+                LoadButton.Enabled = false;
 
-                DeleteButton.Enabled = true;
+                DeleteButton.Enabled = false;
             }
         }
 
@@ -123,6 +119,8 @@ namespace NoitaSaver
             {
                 EmptyFolder(subfolder);
             }
+
+            Directory.Delete(directoryInfo.FullName);
         }
 
         public void CopyFolderSave(string SourcePath, string DestinationPath)
